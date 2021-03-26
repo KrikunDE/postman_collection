@@ -1,0 +1,251 @@
+{
+	"info": {
+		"_postman_id": "27d84915-4a3c-452f-93b1-351975e58a31",
+		"name": "SWAPI Mock server",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "https://a440f0d3-316c-48c0-90e9-45f42d964f6c.mock.pstmn.io",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://a440f0d3-316c-48c0-90e9-45f42d964f6c.mock.pstmn.io",
+					"protocol": "https",
+					"host": [
+						"a440f0d3-316c-48c0-90e9-45f42d964f6c",
+						"mock",
+						"pstmn",
+						"io"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "https://a440f0d3-316c-48c0-90e9-45f42d964f6c.mock.pstmn.io",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://a440f0d3-316c-48c0-90e9-45f42d964f6c.mock.pstmn.io/",
+							"protocol": "https",
+							"host": [
+								"a440f0d3-316c-48c0-90e9-45f42d964f6c",
+								"mock",
+								"pstmn",
+								"io"
+							],
+							"path": [
+								""
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Fri, 26 Mar 2021 15:51:13 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Server",
+							"value": "nginx"
+						},
+						{
+							"key": "x-srv-trace",
+							"value": "v=1;t=714257cda1390aa6"
+						},
+						{
+							"key": "x-srv-span",
+							"value": "v=1;s=b2cfe8cb16f3e9e5"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "X-RateLimit-Limit",
+							"value": "120"
+						},
+						{
+							"key": "X-RateLimit-Remaining",
+							"value": "119"
+						},
+						{
+							"key": "X-RateLimit-Reset",
+							"value": "1616773933"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"a4-7hO0T/XLq3TuFViTu2ZVQQdIY+A\""
+						},
+						{
+							"key": "Vary",
+							"value": "Accept-Encoding"
+						},
+						{
+							"key": "Content-Encoding",
+							"value": "gzip"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": {\n        \"name\": \"test\",\n        \"message\": \"succes\"\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "https://swapi.dev/api/people/1 Copy",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var data = JSON.parse(responseBody);",
+							"",
+							"var schema = {",
+							"    \"type\" : \"object\",",
+							"    \"required\" : [\"name\", \"homeworld\", \"films\", \"species\", \"vehicles\", \"starships\"],",
+							"      ",
+							"    \"properties\" : {",
+							"",
+							"        \"name\" : {\"type\":\"string\"},",
+							"        \"homeworld\" : {\"type\":\"string\"},",
+							"",
+							"        \"films\": {",
+							"              \"type\" : \"array\",",
+							"              \"items\" : {\"type\" : \"string\"},",
+							"        },",
+							"",
+							"        \"species\": {",
+							"              \"type\" : \"array\",",
+							"              \"items\" : {\"type\" : \"string\"},",
+							"        },",
+							"",
+							"        \"vehicles\": {",
+							"              \"type\" : \"array\",",
+							"              \"items\" : {\"type\" : \"string\"},",
+							"        },",
+							"",
+							"        \"starships\": {",
+							"              \"type\" : \"array\",",
+							"              \"items\" : {\"type\" : \"string\"},",
+							"         },",
+							"    }",
+							"};",
+							"",
+							"pm.test('body is correct', function () {",
+							"    pm.expect(tv4.validate(data, schema)).to.be.true;",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://swapi.dev/api/people/1",
+					"protocol": "https",
+					"host": [
+						"swapi",
+						"dev"
+					],
+					"path": [
+						"api",
+						"people",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "https://a440f0d3-316c-48c0-90e9-45f42d964f6c.mock.pstmn.io/action",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"name\":\"Sergei\"}"
+				},
+				"url": {
+					"raw": "https://a440f0d3-316c-48c0-90e9-45f42d964f6c.mock.pstmn.io/action",
+					"protocol": "https",
+					"host": [
+						"a440f0d3-316c-48c0-90e9-45f42d964f6c",
+						"mock",
+						"pstmn",
+						"io"
+					],
+					"path": [
+						"action"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "https://a440f0d3-316c-48c0-90e9-45f42d964f6c.mock.pstmn.io/action",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"name\":\"Sergei\"}"
+						},
+						"url": {
+							"raw": "https://a440f0d3-316c-48c0-90e9-45f42d964f6c.mock.pstmn.io/action",
+							"protocol": "https",
+							"host": [
+								"a440f0d3-316c-48c0-90e9-45f42d964f6c",
+								"mock",
+								"pstmn",
+								"io"
+							],
+							"path": [
+								"action"
+							]
+						}
+					},
+					"_postman_previewlanguage": "json",
+					"header": null,
+					"cookie": [],
+					"body": "{\n    \"status\": {\n        \"name\": \"Sergei\",\n        \"status\": \"created\",\n        \"message\": \"success\"\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "https://a440f0d3-316c-48c0-90e9-45f42d964f6c.mock.pstmn.io",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://a440f0d3-316c-48c0-90e9-45f42d964f6c.mock.pstmn.io",
+					"protocol": "https",
+					"host": [
+						"a440f0d3-316c-48c0-90e9-45f42d964f6c",
+						"mock",
+						"pstmn",
+						"io"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
